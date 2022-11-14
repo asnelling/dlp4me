@@ -70,6 +70,8 @@ class DashSegmentsFD(FragmentFD):
             if not fragment_url:
                 assert fragment_base_url
                 fragment_url = urljoin(fragment_base_url, fragment['path'])
+                original_url = fmt["original_url"]
+                fragment_url += original_url[original_url.find("?"):]
 
             yield {
                 'frag_index': frag_index,
